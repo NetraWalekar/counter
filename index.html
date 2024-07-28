@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product counter</title>
+    <style>
+        .product-img{
+            margin: 5px auto;
+            display: block;
+        }
+        .product-card{
+            width: 400px;
+            border: .5px solid rgb(156, 155, 155);
+            border-radius: 25px;
+            box-shadow: 5px 5px 8px gray;
+            display: block;
+            margin: 20px auto;
+        }
+        .counter-img{
+            height: 35px;
+        }
+        .counter{
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+        .counter-text{
+            font-size: 30px;
+            font-weight: 500;
+        }
+        .product-name{
+            text-align: center;
+            font-size: 30px;
+            margin: 30px;
+        }
+        .buy-now{
+            background-color: aquamarine;
+            color: white;
+            width: 200px;
+            height: 50px;
+            padding: 10px auto;
+            display: block;
+            margin: 30px auto;
+            border: 1px solid aquamarine;
+            border-radius: 25px;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="product-card">
+        <img src="apple.jpg" alt="image of apple" class="product-img">
+        <div class="counter">
+            <img src="minus.png" alt="minus" class="counter-img" id="minus" onclick="dec()">
+            <span class="counter-text" id="quantity-text">1</span>
+            <img src="plus.png" alt="plus" class="counter-img" id="plus" onclick="inc()">
+        </div>
+        <div class="product-name">Apple</div>
+        <button class="buy-now"><b>Buy Now</b></button>
+    </div>
+    <script>
+
+    function dec(){
+        let quantity_ele = document.getElementById("quantity-text")
+        let quantity = parseInt(quantity_ele.innerText)      
+          if(quantity=='1'){
+            alert('items cannot be less than one')
+        }
+        else{
+            quantity_ele.innerText = --quantity;;
+            
+        }
+    }
+    function inc(){
+        let quantity_ele = document.getElementById("quantity-text")
+        let quantity = parseInt(quantity_ele.innerText)
+        if(quantity=='5'){
+            alert('items cannot be greater than five')
+        }
+        else{
+            quantity_ele.innerText = ++quantity;
+        }
+    }
+    </script>
+</body>
+</html>
